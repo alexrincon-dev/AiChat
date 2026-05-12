@@ -58,6 +58,15 @@ android {
         compose = true
         buildConfig = true
     }
+
+    packaging {
+        resources {
+            // mockk-android pulls JUnit Jupiter; several jars ship the same META-INF/LICENSE.md
+            pickFirsts += "META-INF/LICENSE.md"
+            pickFirsts += "META-INF/LICENSE-notice.md"
+            pickFirsts += "META-INF/NOTICE.md"
+        }
+    }
 }
 
 dependencies {
@@ -94,10 +103,13 @@ dependencies {
     ksp(libs.androidx.room.compiler)
     
     testImplementation(libs.junit)
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+    testImplementation("io.mockk:mockk:1.13.5")
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
+    androidTestImplementation("io.mockk:mockk-android:1.13.5")
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 }
