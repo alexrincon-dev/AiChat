@@ -26,6 +26,12 @@
 
 ---
 
+## 🎬 Demo
+
+[App demo (YouTube Short)](https://www.youtube.com/shorts/n7H_vJSfGQI)
+
+---
+
 ## 🚀 Getting Started
 
 ### Prerequisites
